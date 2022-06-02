@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import sys
     len_args = len(sys.argv)
-    if len_args >= 1 and not len_args == 2:
+    if len_args >= 1 and len_args != 2:
         print("{} arguments.".format(len_args - 1))
     elif len_args == 2:
         print("{} argument:".format(len_args - 1))
