@@ -5,5 +5,6 @@ def magic_calculation(a, b):
         c = add(a, b)
         for i in range(0, 90):
             c += i
+
         return c
     return sub(a, b)
