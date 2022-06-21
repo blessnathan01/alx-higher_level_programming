@@ -6,7 +6,7 @@ class Square():
     """
         Square: defines a square
         Attributes:
-            size (int): square's size
+            size (int): square size
         Method:
                 __init__ : init of size attribute for each instance
     """
@@ -15,7 +15,7 @@ class Square():
 
         """ Initialization of attributes for instances
             Args:
-                size (int): square's size
+                size (int): size of the square
                 position (int tuple): position of the square
         """
         if not (isinstance(size, int)):
