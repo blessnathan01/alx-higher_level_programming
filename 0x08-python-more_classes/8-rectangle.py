@@ -139,4 +139,4 @@ class Rectangle:
         elif area_2 > area_1:
             return rect_2
         else:
-            return 
+            return
