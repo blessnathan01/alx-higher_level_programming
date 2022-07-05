@@ -1,0 +1,78 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+>>> bgy = BaseGeometry()
+>>> bgy.area()
+Traceback (most recent call last):
+	...
+Exception: area() is not implemented
+
+>>> bgy.integer_validator("Silvia", 20)
+
+
+Check when value is not an int
+
+>>> bgy.integer_validator("Baraka", "Nathan")
+Traceback (most recent call last):
+	...
+TypeError: Baraka must be an integer
+
+>>> bgy.integer_validator("", True)
+Traceback (most recent call last):
+	...
+TypeError:  must be an integer
+
+>>> bgy.integer_validator("str", None)
+Traceback (most recent call last):
+	...
+TypeError: str must be an integer
+
+Check when value is less than or equal to zero
+>>> bgy.integer_validator("Baba", -8)
+Traceback (most recent call last):
+	...
+ValueError: Baba must be greater than 0
+
+>>> bgy.integer_validator("int", 0)
+Traceback (most recent call last):
+	...
+ValueError: int must be greater than 0
+
+>>> bgy.integer_validator("int", [1, 2, 3])
+Traceback (most recent call last):
+	...
+TypeError: int must be an integer
+
+>>> bgy.integer_validator("int", (1, 2))
+Traceback (most recent call last):
+	...
+TypeError: int must be an integer
+
+>>> bgy.integer_validator("int", {2, 4})
+Traceback (most recent call last):
+	...
+TypeError: int must be an integer
+
+Check when value is too large (inf)
+>>> bgy.integer_validator("Mama", float("inf"))
+Traceback (most recent call last):
+	...
+TypeError: Mama must be an integer
+
+
+Check when no argument is passed
+>>> bgy.integer_validator()
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Check when one argument is passed
+>>> bgy.integer_validator("Kaka")
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> bgy.integer_validator(9)
+Traceback (most recent call last):
+	...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
