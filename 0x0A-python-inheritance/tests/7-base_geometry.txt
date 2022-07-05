@@ -72,7 +72,7 @@ Traceback (most recent call last):
 	...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
->>> bgy.integer_validator(9)
+>>> bgy.integer_validator(8)
 Traceback (most recent call last):
 	...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
