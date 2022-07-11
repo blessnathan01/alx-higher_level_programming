@@ -10,18 +10,18 @@ from io import StringIO
 
 class TestRectangle(unittest.TestCase):
     """
-        Tests rectangle class
+        Tests rectangle
     """
     def setUp(self):
         """
-            Initialize the rectangle instance
+            Initialize an insatnce of rectangle
             With width and height only
         """
-        self.r = Rectangle(32, 40)
+        self.r = Rectangle(20, 10)
 
     def tearDown(self):
         """
-            Deletes new instance
+            Deletes created instance
         """
         del self.r
 
@@ -29,50 +29,50 @@ class TestRectangle(unittest.TestCase):
         """
             Tests rectangle width getter
         """
-        self.assertEqual(32, self.r.width)
+        self.assertEqual(20, self.r.width)
 
     def test_height(self):
         """
             Tests the height getter
         """
-        self.assertEqual(40, self.r.height)
+        self.assertEqual(10, self.r.height)
 
     def test_x(self):
         """
             Tests the x getter
         """
-        self.r.x = 3
-        self.assertEqual(3, self.r.x)
-        self.assertEqual(2, self.r.y)
+        self.r.x = 2
+        self.assertEqual(2, self.r.x)
+        self.assertEqual(0, self.r.y)
 
     def test_y(self):
         """
             Tests the y getter
         """
-        self.r.y = 3
-        self.assertEqual(3, self.r.y)
-        self.assertEqual(2, self.r.x)
+        self.r.y = 2
+        self.assertEqual(2, self.r.y)
+        self.assertEqual(0, self.r.x)
 
     def test_rectangle_id(self):
         """
             Tests the id of the rectangle
         """
-        r1 = Rectangle(1, 3, 0, 0, 15)
-        self.assertEqual(15, r1.id)
+        r1 = Rectangle(1, 3, 0, 0, 12)
+        self.assertEqual(12, r1.id)
 
     def test_width_str(self):
         """
             Tests wrong type for width: str
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle("w", 7)
+            r1 = Rectangle("w", 5)
 
     def test_width_list(self):
         """
             Tests wrong type for width: list
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle([7, 4], 8)
+            r1 = Rectangle([1, 2], 8)
 
     def test_width_bool(self):
         """
@@ -93,74 +93,74 @@ class TestRectangle(unittest.TestCase):
             Tests wrong type for height: list
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(8, [7, 4])
+            r1 = Rectangle(8, [1, 2])
 
     def test_height_bool(self):
         """
             Tests wrong type for height: boolean
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(19, True)
+            r1 = Rectangle(9, True)
 
     def test_x_str(self):
         """
             Tests wrong type for x: str
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(7, 4, "x", 0)
+            r1 = Rectangle(1, 2, "x", 0)
 
     def test_x_list(self):
         """
             Tests wrong type for x: list
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(7, 4, [7, 4], 8)
+            r1 = Rectangle(1, 2, [1, 2], 8)
 
     def test_x_bool(self):
         """
             Tests wrong type for x: boolean
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(7, 4, True, 9)
+            r1 = Rectangle(1, 2, True, 9)
 
     def test_y_str(self):
         """
             Tests wrong type for y: str
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(7, 4, 0, "y")
+            r1 = Rectangle(1, 2, 0, "y")
 
     def test_y_list(self):
         """
             Tests wrong type for y: list
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(7, 4, 6, [7, 4])
+            r1 = Rectangle(1, 2, 6, [1, 2])
 
     def test_y_bool(self):
         """
             Tests wrong type for y: boolean
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(7, 4, 9, True)
+            r1 = Rectangle(1, 2, 9, True)
 
     def test_width_negative(self):
         """
             Tests negative value for width
         """
         with self.assertRaises(ValueError):
-            r1 = Rectangle(-5, 8)
+            r1 = Rectangle(-2, 8)
 
     def test_width_zero(self):
         """
             Tests zero value for width
         """
         with self.assertRaises(ValueError):
-            r1 = Rectangle(0, 48)
+            r1 = Rectangle(0, 8)
 
     def test_height_negative(self):
         """
-            Tests negative value for height
+            Tests negative vale fro height
         """
         with self.assertRaises(ValueError):
             r1 = Rectangle(8, -2)
@@ -177,55 +177,55 @@ class TestRectangle(unittest.TestCase):
             Tests negative value for x
         """
         with self.assertRaises(ValueError):
-            r1 = Rectangle(1, 2, -1, 0)
+            r1 = Rectangle(1, 2, -12, 0)
 
     def test_y_negative(self):
         """
             Tests negative value for y
         """
         with self.assertRaises(ValueError):
-            r1 = Rectangle(1, 2, 4, -5)
+            r1 = Rectangle(1, 2, 24, -37)
 
     def test_width_float(self):
         """
-            tests for float
+            Tests for float
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(32.45, 35)
+            r1 = Rectangle(13.07, 5)
 
     def test_height_float(self):
         """
-            tests for float
+            Tests for float
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(75, 9.41)
+            r1 = Rectangle(5, 12.07)
 
     def test_x_float(self):
         """
-            tests for float
+            Tests for float
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(51, 82, 11.27)
+            r1 = Rectangle(5, 8, 154.07)
 
     def test_y_float(self):
         """
-            tests for float
+            Tests for float
         """
         with self.assertRaises(TypeError):
-            r1 = Rectangle(5, 5, 8, 1.07)
+            r1 = Rectangle(5, 5, 8, 13.074)
 
     def test_area(self):
         """
             Tests the rectangle area
         """
-        r1 = Rectangle(30, 4)
-        self.assertEqual(r1.area(), 120)
+        r1 = Rectangle(12, 2)
+        self.assertEqual(r1.area(), 24)
 
     def test_update_id(self):
         """
             Tests the update id
         """
-        r1 = Rectangle(16, 11)
+        r1 = Rectangle(10, 1)
         r1.update(12)
         self.assertEqual(12, r1.id)
 
@@ -233,7 +233,7 @@ class TestRectangle(unittest.TestCase):
         """
             Tests update width
         """
-        r1 = Rectangle(3, 7)
+        r1 = Rectangle(1, 2)
         r1.update(2, 12)
         self.assertEqual(12, r1.width)
 
@@ -263,7 +263,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_update_dict(self):
         """
-            Tests the update method with kwargs
+            Tests teh update method with kwargs
         """
         r1 = Rectangle(1, 3)
         r1.update(id=3, height=5, width=6, x=7, y=9)
@@ -406,7 +406,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_save_to_file_type(self):
         """
-            Tests save to file, format saved in
+            Tests save to file , format saved in
         """
         Rectangle.save_to_file([Rectangle(1, 2, 3, 4, 5)])
         with open("Rectangle.json", "r") as f:
